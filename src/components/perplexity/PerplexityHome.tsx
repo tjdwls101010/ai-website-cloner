@@ -18,7 +18,13 @@ import {
 import { WaveformIcon } from "@/components/icons";
 import type { SuggestionPill } from "@/types/perplexity";
 
-const categories = ["Discover", "Finance", "Health", "Academic", "Patents"];
+const categories = [
+  { label: "Discover", href: "/discover" },
+  { label: "Finance", href: "/finance" },
+  { label: "Health", href: "/academic" },
+  { label: "Academic", href: "/academic" },
+  { label: "Patents", href: "/academic" },
+];
 
 const pills: SuggestionPill[] = [
   { label: "Build a business", icon: BriefcaseBusiness, active: true },
@@ -45,11 +51,11 @@ export function PerplexityHome() {
       <nav className="hidden h-14 items-center justify-center gap-6 text-sm text-pplx-quiet md:flex">
         {categories.map((category) => (
           <Link
-            href="#"
-            key={category}
+            href={category.href}
+            key={category.label}
             className="transition-colors hover:text-pplx-foreground"
           >
-            {category}
+            {category.label}
           </Link>
         ))}
       </nav>

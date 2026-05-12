@@ -22,7 +22,6 @@ import {
 import { PerplexityMark } from "@/components/icons";
 import { cn } from "@/lib/utils";
 import type { SidebarItem } from "@/types/perplexity";
-import { CookieNotice } from "./CookieNotice";
 
 const sidebarItems: SidebarItem[] = [
   { label: "New", icon: Plus },
@@ -61,16 +60,18 @@ const sidebarDisplayLabels: Record<string, string> = {
 
 interface PerplexityShellProps {
   children: ReactNode;
-  active?: "home" | "conversation";
+  active?: "home" | "conversation" | "discover" | "finance" | "academic";
+  defaultCollapsed?: boolean;
   showThread?: boolean;
 }
 
 export function PerplexityShell({
   children,
   active = "home",
+  defaultCollapsed = false,
   showThread = false,
 }: PerplexityShellProps) {
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(defaultCollapsed);
   const sidebarWidth = collapsed ? "72px" : "200px";
 
   return (
@@ -88,7 +89,6 @@ export function PerplexityShell({
       <div className="min-h-svh transition-[padding-left] duration-300 ease-out md:pl-[var(--pplx-sidebar-width)]">
         {children}
       </div>
-      <CookieNotice />
     </div>
   );
 }
