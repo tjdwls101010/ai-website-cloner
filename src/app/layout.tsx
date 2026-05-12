@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "Perplexity",
+  description: "Static Perplexity interface clone",
+  icons: {
+    icon: "/seo/perplexity-favicon.svg",
+  },
 };
 
 export default function RootLayout({
